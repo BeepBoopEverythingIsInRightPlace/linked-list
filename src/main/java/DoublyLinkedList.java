@@ -48,12 +48,28 @@ public class DoublyLinkedList<T> {
         return value;
     }
 
-    public T shift() {
-        return null;
+    public void unshift(T value) {
+        Node<T> node;
+        if (notEmpty()) {
+            node = new Node<>(value, null, frontNode);
+            frontNode.prev = node;
+        } else {
+            node = new Node<>(value, null, null);
+            backNode = node;
+        }
+        frontNode = node;
     }
 
-    public void unshift(T value) {
-
+    public T shift() {
+        T value = frontNode.value;
+        if (frontNode.next != null) {
+            frontNode.next.prev = null;
+            frontNode = frontNode.next;
+        } else {
+            backNode = null;
+            frontNode = null;
+        }
+        return value;
     }
 
     private boolean notEmpty() {
