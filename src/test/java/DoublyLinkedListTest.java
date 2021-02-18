@@ -8,7 +8,6 @@ public class DoublyLinkedListTest {
     @Test
     public void testPushPop() {
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
-
         list.push(10);
         list.push(20);
         list.push(30);
@@ -16,6 +15,7 @@ public class DoublyLinkedListTest {
         assertThat(list.pop()).isEqualTo(30);
         assertThat(list.pop()).isEqualTo(20);
         assertThat(list.pop()).isEqualTo(10);
+
     }
 
     @Ignore("Remove to run test")
